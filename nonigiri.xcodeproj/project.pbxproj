@@ -11,6 +11,7 @@
 		0E3A0FB82C27E3BC00D59A4B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3A0FB72C27E3BC00D59A4B /* ContentView.swift */; };
 		0E3A0FBA2C27E3BD00D59A4B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E3A0FB92C27E3BD00D59A4B /* Assets.xcassets */; };
 		0E3A0FBD2C27E3BD00D59A4B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E3A0FBC2C27E3BD00D59A4B /* Preview Assets.xcassets */; };
+		0E3A0FC62C27F5A400D59A4B /* ModernSlider in Frameworks */ = {isa = PBXBuildFile; productRef = 0E3A0FC52C27F5A400D59A4B /* ModernSlider */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E3A0FC62C27F5A400D59A4B /* ModernSlider in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,6 +87,9 @@
 			dependencies = (
 			);
 			name = nonigiri;
+			packageProductDependencies = (
+				0E3A0FC52C27F5A400D59A4B /* ModernSlider */,
+			);
 			productName = nonigiri;
 			productReference = 0E3A0FB22C27E3BC00D59A4B /* nonigiri.app */;
 			productType = "com.apple.product-type.application";
@@ -113,6 +118,9 @@
 				Base,
 			);
 			mainGroup = 0E3A0FA92C27E3BC00D59A4B;
+			packageReferences = (
+				0E3A0FC42C27F5A400D59A4B /* XCRemoteSwiftPackageReference "ModernSlider" */,
+			);
 			productRefGroup = 0E3A0FB32C27E3BC00D59A4B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -341,6 +349,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0E3A0FC42C27F5A400D59A4B /* XCRemoteSwiftPackageReference "ModernSlider" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/arjun-dureja/ModernSlider";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0E3A0FC52C27F5A400D59A4B /* ModernSlider */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0E3A0FC42C27F5A400D59A4B /* XCRemoteSwiftPackageReference "ModernSlider" */;
+			productName = ModernSlider;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 0E3A0FAA2C27E3BC00D59A4B /* Project object */;
 }

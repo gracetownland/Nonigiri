@@ -10,8 +10,9 @@ import SwiftUI
 @main
 struct nonigiriApp: App {
     var body: some Scene {
-        WindowGroup {
+        MenuBarExtra("Nonigiri", systemImage: "backpack"){
             ContentView()
-        }
+        }.menuBarExtraStyle(.window)
+        
     }
 }

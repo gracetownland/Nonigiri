@@ -6,36 +6,42 @@
 //
 
 import SwiftUI
+import ModernSlider
 
 struct ContentView: View {
-    private var statusItem: NSStatusItem!
-    @State private var speed = 5.0
+    @State private var setTime = 5.0
     @State private var isEditing = false
+    let mainScreen = NSScreen.main
+    
     var body: some View {
         VStack{
-            Slider(
-                        value: $speed,
-                        in: 0...120,
-                        onEditingChanged: { editing in
-                            isEditing = editing
-                        }
+            ModernSlider(
+                "Time",
+                systemImage: "deskclock",
+                sliderWidth: 200,
+                sliderHeight: 30,
+                sliderColor: .white,
+                value: Binding(
+                    get: {setTime/1.2},
+                    set: {setTime = $0 * 1.2}
                     )
-//                    Text("\(speed)")
-//                        .foregroundColor(isEditing ? .red : .blue)
-            //Text("SLIDER")
+                )
+            
+
             HStack{
                 Button("5m") {
-                    speed = 5
+                    setTime = 5
+                    //start timer
                 }
                 .buttonStyle(.accessoryBar)
                 .padding(5)
                 Button("10m") {
-                    speed = 10
+                    setTime = 10
                 }
                 .buttonStyle(.accessoryBar)
                 .padding(5)
                 Button("25m") {
-                    speed = 25
+                    setTime = 25
                 }
                 .buttonStyle(.accessoryBar)
                 .padding(5)
@@ -47,13 +53,13 @@ struct ContentView: View {
             }
             HStack{
                 Button("Start"){
-                    speed+=speed
+                    setTime = (setTime < 120) ? setTime + setTime : 120
                 }
                 .buttonStyle(.accessoryBar)
                 .padding(10)
     
                 Spacer()
-                Text("\(Int(speed))").bold().font(.system(size: 30))
+                Text("\(Int(setTime))").bold().font(.system(size: 30))
             }
         }
     }

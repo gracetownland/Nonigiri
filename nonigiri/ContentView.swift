@@ -10,28 +10,30 @@ import ModernSlider
 import Foundation
 
 struct ContentView: View {
-    @State private var setTime = 5.0
+    @State private var timer: Timer?
+    @State private var isTimerRunning = false
     @State private var isEditing = false
+    @State private var timerCount: TimeInterval = 0
     let mainScreen = NSScreen.main
-    @State var isTimerRunning = false
-    func startTimer(){
+    
+    func startTimer() {
         isTimerRunning = true
-        var timerCount = 0
-        Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { timer in
-                                timerCount += 1
-            if (timerCount == 10){
-                setTime = setTime - 0.01
-                timerCount = 0
-                
-                if(setTime <= 0.0)
-                {
-                    timer.invalidate()
-                }
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
+            if (timerCount > 0) {
+                timerCount -= 1
             }
-            
-                    }
-        //make timer functionality
+            else {
+                stopTimer()
+            }
+        }
     }
+    
+    func stopTimer() {
+        isTimerRunning = false
+        timer?.invalidate()
+    }
+    
+    
     var body: some View {
 
         VStack{
@@ -43,8 +45,8 @@ struct ContentView: View {
                 sliderHeight: 30,
                 sliderColor: .white,
                 value: Binding(
-                    get: {setTime/1.2},
-                    set: {setTime = $0 * 1.2}
+                    get: {timerCount/72},
+                    set: {timerCount = $0 * 72}
                     )
                 )
             .padding(.top)
@@ -52,21 +54,19 @@ struct ContentView: View {
 
             HStack{
                 Button("5m") {
-                    setTime = 5
+                    timerCount = 5
                     startTimer()
-                    //start timer
                 }
                 .buttonStyle(.accessoryBar)
                 .padding(5)
                 Button("10m") {
-                    setTime = 10
+                    timerCount = 10
                     startTimer()
-                    //startTimer
                 }
                 .buttonStyle(.accessoryBar)
                 .padding(5)
                 Button("25m") {
-                    setTime = 25
+                    timerCount = 25
                     startTimer()
                 }
                 .buttonStyle(.accessoryBar)
@@ -79,7 +79,6 @@ struct ContentView: View {
             }
             HStack{
                 Button("start"){
-                    //setTime = (setTime < 120) ? setTime + setTime : 120
                     startTimer()
                 }
                 .buttonStyle(.accessoryBar)
@@ -91,10 +90,11 @@ struct ContentView: View {
             }
         }
         var formattedtime : String {
-            let minutes = Int(setTime)
-            let seconds = Int((setTime - Double(minutes)) * 60)
+            let hours = Int(timerCount) / 3600
+            let minutes = (Int(timerCount) % 3600) / 60
+            let seconds = Int(timerCount) % 60
             
-            return String(format: "%02d:%02d", minutes, seconds)
+            return String(format: "%02d:%02d:%02d", hours, minutes, seconds)
         }
     }
 }

@@ -9,33 +9,17 @@ import SwiftUI
 import ModernSlider
 import Foundation
 
+
+
 struct ContentView: View {
-    @State private var setTime = 5.0
+    @State var setTime = 5.0
     @State private var isEditing = false
     let mainScreen = NSScreen.main
-    @State var isTimerRunning = false
-    func startTimer(){
-        isTimerRunning = true
-        var timerCount = 0
-        Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { timer in
-                                timerCount += 1
-            if (timerCount == 10){
-                setTime = setTime - 0.01
-                timerCount = 0
-                
-                if(setTime <= 0.0)
-                {
-                    timer.invalidate()
-                }
-            }
-            
-                    }
-        //make timer functionality
-    }
     var body: some View {
 
         VStack{
-            
+            let timerHelper = TimerHelper(setTime: setTime)
+
             ModernSlider(
                 "Time",
                 systemImage: "deskclock",
@@ -53,21 +37,21 @@ struct ContentView: View {
             HStack{
                 Button("5m") {
                     setTime = 5
-                    startTimer()
+                    //startTimer()
                     //start timer
                 }
                 .buttonStyle(.accessoryBar)
                 .padding(5)
                 Button("10m") {
                     setTime = 10
-                    startTimer()
+                   // startTimer()
                     //startTimer
                 }
                 .buttonStyle(.accessoryBar)
                 .padding(5)
                 Button("25m") {
                     setTime = 25
-                    startTimer()
+                   // startTimer()
                 }
                 .buttonStyle(.accessoryBar)
                 .padding(5)
@@ -80,7 +64,7 @@ struct ContentView: View {
             HStack{
                 Button("start"){
                     //setTime = (setTime < 120) ? setTime + setTime : 120
-                    startTimer()
+                    //startTimer()
                 }
                 .buttonStyle(.accessoryBar)
                 .padding(10)

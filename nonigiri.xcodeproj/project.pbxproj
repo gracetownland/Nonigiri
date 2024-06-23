@@ -12,6 +12,7 @@
 		0E3A0FBA2C27E3BD00D59A4B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E3A0FB92C27E3BD00D59A4B /* Assets.xcassets */; };
 		0E3A0FBD2C27E3BD00D59A4B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E3A0FBC2C27E3BD00D59A4B /* Preview Assets.xcassets */; };
 		0E3A0FC62C27F5A400D59A4B /* ModernSlider in Frameworks */ = {isa = PBXBuildFile; productRef = 0E3A0FC52C27F5A400D59A4B /* ModernSlider */; };
+		0E3A0FC82C28105B00D59A4B /* TimerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3A0FC72C28105B00D59A4B /* TimerHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		0E3A0FB92C27E3BD00D59A4B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0E3A0FBC2C27E3BD00D59A4B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0E3A0FBE2C27E3BD00D59A4B /* nonigiri.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = nonigiri.entitlements; sourceTree = "<group>"; };
+		0E3A0FC72C28105B00D59A4B /* TimerHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 			children = (
 				0E3A0FB52C27E3BC00D59A4B /* nonigiriApp.swift */,
 				0E3A0FB72C27E3BC00D59A4B /* ContentView.swift */,
+				0E3A0FC72C28105B00D59A4B /* TimerHelper.swift */,
 				0E3A0FB92C27E3BD00D59A4B /* Assets.xcassets */,
 				0E3A0FBE2C27E3BD00D59A4B /* nonigiri.entitlements */,
 				0E3A0FBB2C27E3BD00D59A4B /* Preview Content */,
@@ -147,6 +150,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E3A0FC82C28105B00D59A4B /* TimerHelper.swift in Sources */,
 				0E3A0FB82C27E3BC00D59A4B /* ContentView.swift in Sources */,
 				0E3A0FB62C27E3BC00D59A4B /* nonigiriApp.swift in Sources */,
 			);
